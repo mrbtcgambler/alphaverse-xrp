@@ -1,0 +1,37 @@
+{
+  "name": "alphaverse-xrp",
+  "version": "2.0.1",
+  "description": "Alphaverse: The Casino Master of the Multiverse. Roll the dice and dominate the digital cosmos with our state-of-the-art betting bot!",
+  "type": "module",
+  "scripts": {
+    "server": "node server/index.js",
+    "client": "node client/index.js",
+    "getIPs": "node server/getIPs.js",
+    "2faAPI": "node server/2faServer.js",
+    "apiServer": "node server/2faServer.js",
+    "postinstall": "node client/fix-tr46.js",
+    "dicebot": "node client/blackjack_Janus_v4.6.js"
+  },
+  "dependencies": {
+    "axios": "^1.11.0",
+    "express": "^5.1.0",
+    "fs": "^0.0.1-security",
+    "https-proxy-agent": "^7.0.6",
+    "javascript-obfuscator": "^4.1.1",
+    "moment": "^2.30.1",
+    "node-2fa": "^2.0.3",
+    "node-fetch": "^3.3.2",
+    "node-fetch-retry-timeout": "^1.2.1",
+    "pug": "^3.0.3",
+    "punycode": "^2.3.1",
+    "socket.io": "^4.8.1",
+    "socket.io-client": "^4.8.1",
+    "tr46": "^5.1.1",
+    "tronweb": "^6.0.4",
+    "upgrade": "^1.1.0",
+    "uuid": "^11.1.0",
+    "whatwg-url": "^14.2.0",
+    "ws": "^8.18.3",
+    "xrpl": "^4.4.0"
+  }
+}

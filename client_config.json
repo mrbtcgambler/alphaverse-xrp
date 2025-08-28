@@ -1,0 +1,17 @@
+{
+  "authToken": "",
+  "masterHost": "http://alpha-server-live:3000",
+  "username": "",
+  "apiKey": "",
+  "password": "",
+  "twoFaSecret": "",
+  "currency": "xrp",
+  "bustThreshold": 0.95,
+  "recoverThreshold": 1.22,
+  "sudoPassword": "",
+  "simulationMode": "false",
+  "simulationStartBalance": 40,
+  "simulationTotalBets": 87600000,
+  "simulatedRecoveryPot": 60000,
+  "apiServer": "alpha-server-live"
+}
