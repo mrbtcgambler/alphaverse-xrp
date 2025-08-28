@@ -5,7 +5,7 @@ Welcome to the Alphaverse-XRP Automation Suite, a sophisticated, multi-component
 **🎥 Tutorial Video**
 
 * **Watch the setup tutorial here:** [YouTube Video](https://www.youtube.com/watch?v=1jqk8QUGm5M)
-* ** Join Discord here:** [Discord](https://discord.gg/ujbxY8jZS4)
+* **Join Discord here:** [Discord](https://discord.gg/ujbxY8jZS4)
 ---
 
 ## 🛡️ Critical Security Features
