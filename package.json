@@ -10,7 +10,7 @@
     "2faAPI": "node server/2faServer.js",
     "apiServer": "node server/2faServer.js",
     "postinstall": "node client/fix-tr46.js",
-    "dicebot": "node client/blackjack_Janus_v4.6.js"
+    "dicebot": "node client/blackjack_Janus_v4.7.js"
   },
   "dependencies": {
     "axios": "^1.11.0",
