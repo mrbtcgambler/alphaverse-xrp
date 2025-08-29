@@ -11,11 +11,12 @@ const appVersion = '2.0.1';
 const homeDir = os.homedir();
 
 // Define the components, their files to verify, and their checksum URLs.
+// NOTE: The keys (e.g., 'client/index.js') MUST EXACTLY MATCH the keys in the remote JSON file.
 const targets = {
     client: {
         files: {
             'client/index.js': path.join(homeDir, 'alphaverse-xrp', 'client', 'index.js'),
-            'client/StakeApi.mjs': path.join(homeDir, 'alphaverse-xrp', 'client', 'StakeApi.mjs')
+            // REMOVED: StakeApi.mjs check has been removed as requested.
         },
         checksumUrl: `https://www.alphaverse.army/client-${appVersion}.json`
     },
@@ -27,7 +28,8 @@ const targets = {
     },
     proxy: {
         files: {
-            'proxy/src/index.js': path.join(homeDir, 'proxy', 'src', 'index.js')
+            // UPDATED: The key now matches the key provided by the server's JSON file.
+            'proxy/index.js': path.join(homeDir, 'proxy', 'src', 'index.js')
         },
         checksumUrl: `https://www.alphaverse.army/proxy-${appVersion}.json`
     }
@@ -44,7 +46,7 @@ function calculateChecksum(filePath) {
     return new Promise((resolve, reject) => {
         const hash = crypto.createHash('sha256');
         const stream = fs.createReadStream(filePath);
-        stream.on('data', (data) => hash.update(data, 'utf8'));
+        stream.on('data', (data) => hash.update(data)); // Removed 'utf8' to handle binary data correctly
         stream.on('end', () => resolve(hash.digest('hex')));
         stream.on('error', (err) => reject(err));
     });
@@ -78,6 +80,10 @@ async function verifyChecksums() {
             const expectedChecksumsData = await getExpectedChecksums(config.checksumUrl);
             const expectedChecksums = expectedChecksumsData[appVersion];
 
+            // --- DEBUGGING: Log the keys received from the server ---
+            console.log(`  [DEBUG] Available keys from server:`, expectedChecksums ? Object.keys(expectedChecksums) : 'None');
+            // ---
+
             if (!expectedChecksums) {
                 console.log(`\x1b[31m[ERROR] No checksums found for version ${appVersion} at ${config.checksumUrl}\x1b[0m`);
                 continue;
@@ -107,3 +113,4 @@ async function verifyChecksums() {
 
 // --- Execute Script ---
 verifyChecksums().catch(console.error);
+
